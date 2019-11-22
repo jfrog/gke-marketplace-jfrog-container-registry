@@ -1,0 +1,24 @@
+engine: gotpl
+name: artifactory-ha-mp
+home: https://www.jfrog.com/artifactory/
+version: 0.17.1
+appVersion: 6.15.0
+description: Universal Repository Manager supporting all major packaging formats,
+  build tools and CI servers.
+keywords:
+- artifactory
+- jfrog
+- devops
+sources:
+- https://bintray.com/jfrog/product/JFrog-Artifactory-Pro/view
+- https://github.com/jfrog/charts
+maintainers:
+- name: danielmi
+  email: danielmi@jfrog.com
+- name: eldada
+  email: eldada@jfrog.com
+- name: rimusz
+  email: rimasm@jfrog.com
+- name: ankushc
+  email: ankushc@jfrog.com
+icon: https://raw.githubusercontent.com/jfrog/artifactory-dcos/master/images/jfrog_med.png
