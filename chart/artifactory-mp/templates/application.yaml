@@ -16,37 +16,40 @@ spec:
     description: |-
       JFrog Container Registry - The world’s most advanced, powerful, hybrid Docker and Helm registry.
     maintainers:
-      - name: JFrog
-        url: https://www.jfrog.com/
+    - name: JFrog
+      url: https://www.jfrog.com/
     keywords:
-      - artifactory
-      - jfrog
-      - devops
-      - repository
-      - registry
-      - kubernetes
+    - artifactory
+    - jfrog
+    - devops
+    - repository
+    - registry
+    - kubernetes
     links:
-      - description: 'User Guide: JFrog'
-        url: https://www.jfrog.com/confluence/display/JCR/Welcome+to+JFrog+Container+Registry
-      - description: 'JFrog Artifactory Chart'
-        url: https://github.com/jfrog/charts
+    - description: 'User Guide: JFrog'
+      url: https://www.jfrog.com/confluence/display/JCR/Welcome+to+JFrog+Container+Registry
+    - description: 'JFrog Artifactory Chart'
+      url: https://github.com/jfrog/charts
     notes: |-
       ## Congratulations. You have just deployed your very own JFrog Container Registry!
+
       ## DATABASE:
       To extract the database password, run the following
       ```shell
       export DB_PASSWORD=$(kubectl get --namespace {{ .Release.Namespace }} $(kubectl get secret --namespace {{ .Release.Namespace }} -o name | grep postgresql) -o jsonpath="{.data.postgres-password}" | base64 --decode)
       echo ${DB_PASSWORD}
       ```
+
       ## SETUP:
       1. Get the JFrog Container Registry IP and URL
          NOTE: It may take a few minutes for the LoadBalancer public IP to be available!
+
          You can watch the status of the service by running `kubectl get svc -w {{ .Release.Name }}-nginx --namespace {{ .Release.Namespace }}`
          ```shell
          export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ .Release.Name }}-nginx -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
          echo http://$SERVICE_IP/
          ```
-
+         
       2. Open the JFrog Container Registry in your browser
          Default credential for Artifactory:
          user:     admin
@@ -55,23 +58,23 @@ spec:
     matchLabels:
       app.kubernetes.io/name: "{{ .Release.Name }}"
   componentKinds:
-    - group: apps/v1beta2
-      kind: Deployment
-    - group: apps/v1beta2
-      kind: StatefulSet
-    - group: v1
-      kind: PersistentVolumeClaim
-    - group: v1
-      kind: ConfigMap
-    - group: policy/v1beta1
-      kind: PodDisruptionBudget
-    - group: v1
-      kind: Secret
-    - group: rbac.authorization.k8s.io/v1
-      kind: Role
-    - group: rbac.authorization.k8s.io/v1
-      kind: RoleBinding
-    - group: v1
-      kind: Service
-    - group: v1
-      kind: ServiceAccount
+  - group: apps/v1beta2
+    kind: Deployment
+  - group: apps/v1beta2
+    kind: StatefulSet
+  - group: v1
+    kind: PersistentVolumeClaim
+  - group: v1
+    kind: ConfigMap
+  - group: policy/v1beta1
+    kind: PodDisruptionBudget
+  - group: v1
+    kind: Secret
+  - group: rbac.authorization.k8s.io/v1
+    kind: Role
+  - group: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+  - group: v1
+    kind: Service
+  - group: v1
+    kind: ServiceAccount
