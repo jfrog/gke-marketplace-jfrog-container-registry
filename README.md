@@ -98,8 +98,8 @@ You need to run this command once.
 #### Clone this repo
 
 ```shell
-git clone https://github.com/jfrog/gke-marketplace-jfrog.git
-git checkout 6.15.0
+git clone https://github.com/jfrog/gke-marketplace-jfrog-container-registry.git
+git checkout 6.16.0
 ```
 
 #### Pull deployer image
@@ -111,7 +111,7 @@ gcloud auth configure-docker
 
 Pull the deployer image to your local docker registry
 ```shell
-docker pull gcr.io/cloud-marketplace/jfrog/jfrogcr:6.15.0
+docker pull gcr.io/cloud-marketplace/jfrog/jfrogcr:6.16.0
 ```
 
 #### Run installer script
@@ -134,7 +134,7 @@ kubectl create namespace $NAMESPACE
 Run the install script
 
 ```shell
-./scripts/mpdev scripts/install  --deployer=gcr.io/cloud-marketplace/jfrog/jfrogcr:6.15.0   --parameters='{"name": "'$NAME'", "namespace": "'$NAMESPACE'"}'
+./scripts/mpdev scripts/install  --deployer=gcr.io/cloud-marketplace/jfrog/jfrogcr:6.16.0   --parameters='{"name": "'$NAME'", "namespace": "'$NAMESPACE'"}'
 
 ```
 
