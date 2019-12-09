@@ -9,20 +9,10 @@ properties:
     type: string
     x-google-marketplace:
       type: NAMESPACE
-  artifactory-ha.serviceAccount.name:
+  artifactory.serviceAccount.name:
     type: string
     x-google-marketplace:
       type: SERVICE_ACCOUNT
-  #postgresImage:
-  #  type: string
-  #  default: gcr.io/jfrog-gc-mp/jfrog-artifactory/postgres:9.6
-  #  x-google-marketplace:
-  #    type: IMAGE
-  #    image:
-  #      generatedProperties:
-  #        splitByColon:
-  #          before: artifactory.postgresql.image
-  #          after: artifactory.postgresql.imageTag
   artifactory.postgresql.postgresPassword:
     type: string
     x-google-marketplace:
@@ -44,8 +34,8 @@ properties:
       image:
         generatedProperties:
           splitByColon:
-            before: artifactory.artifactory.image.repository
-            after: artifactory.artifactory.image.version
+            before: artifactory-jcr.artifactory.artifactory.image.repository
+            after: artifactory-jcr.artifactory.artifactory.image.version
   artifactory.artifactory.persistence.size:
     title: Disk allocation to Artifactory nodes
     type: string
@@ -101,8 +91,8 @@ properties:
       image:
         generatedProperties:
           splitByColon:
-            before: artifactory.nginx.image.repository
-            after: artifactory.nginx.image.version
+            before: artifactory-jcr.artifactory.nginx.image.repository
+            after: artifactory-jcr.artifactory.nginx.image.version
   artifactory.nginx.service.type:
     title: 'Nginx Service Type'
     description: 'Nginx Service Type. LoadBalancer/NodePort/ClusterIP'
@@ -119,8 +109,7 @@ properties:
 required:
 - name
 - namespace
-- artifactory-ha.serviceAccount.name
-#- postgresImage
+- artifactory.serviceAccount.name
 - artifactory.postgresql.postgresPassword
 - artifactory.artifactory.masterKey
 - artifactory.artifactory.node.replicaCount
