@@ -1,4 +1,4 @@
 dependencies:
-- name: artifactory-jcr
-  version: 1.0.0
-  repository: https://charts.jfrog.io
+- name: artifactory
+  version: 8.100.7
+  repository: https://entplus.jfrog.io/artifactory/entplusrepo/
