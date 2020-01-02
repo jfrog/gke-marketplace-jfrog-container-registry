@@ -13,7 +13,7 @@ properties:
     type: string
     x-google-marketplace:
       type: SERVICE_ACCOUNT
-  artifactory.postgresql.postgresPassword:
+  artifactory.postgresql.postgresqlPassword:
     type: string
     x-google-marketplace:
       type: GENERATED_PASSWORD
@@ -110,7 +110,7 @@ required:
 - name
 - namespace
 - artifactory.serviceAccount.name
-- artifactory.postgresql.postgresPassword
+- artifactory.postgresql.postgresqlPassword
 - artifactory.artifactory.masterKey
 - artifactory.artifactory.node.replicaCount
 - artifactoryImage
