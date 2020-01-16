@@ -99,7 +99,7 @@ You need to run this command once.
 
 ```shell
 git clone https://github.com/jfrog/gke-marketplace-jfrog-container-registry.git
-git checkout 6.16.0
+git checkout 6.17.0
 ```
 
 #### Pull deployer image
@@ -111,7 +111,7 @@ gcloud auth configure-docker
 
 Pull the deployer image to your local docker registry
 ```shell
-docker pull gcr.io/jfrog-gc-mp/jfrog-jcr/deployer:6.16
+docker pull gcr.io/jfrog-gc-mp/jfrog-jcr/deployer:6.17
 ```
 
 #### Run installer script
