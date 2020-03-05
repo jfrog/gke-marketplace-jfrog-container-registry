@@ -28,14 +28,14 @@ properties:
     type: string
   artifactoryImage:
     type: string
-    default: gcr.io/jfrog-gc-mp/jfrog-jcr:7.0.0-m664
+    default: gcr.io/jfrog-gc-mp/jfrog-jcr:7.2.1
     x-google-marketplace:
       type: IMAGE
       image:
         generatedProperties:
           splitByColon:
-            before: artifactory.artifactory.image.repository
-            after: artifactory.artifactory.image.version
+            before: artifactory-jcr.artifactory.artifactory.image.repository
+            after: artifactory-jcr.artifactory.artifactory.image.version
   artifactory.artifactory.persistence.size:
     title: Disk allocation to Artifactory nodes
     type: string
@@ -85,14 +85,14 @@ properties:
     default: "-server -Xms1g -Xmx6g -Xss256k -XX:+UseG1GC"
   artifactoryNginxImage:
     type: string
-    default: gcr.io/jfrog-gc-mp/jfrog-jcr/nginx:7.0.0-m664
+    default: gcr.io/jfrog-gc-mp/jfrog-jcr/nginx:7.2.1
     x-google-marketplace:
       type: IMAGE
       image:
         generatedProperties:
           splitByColon:
-            before: artifactory.nginx.image.repository
-            after: artifactory.nginx.image.version
+            before: artifactory-jcr.artifactory.nginx.image.repository
+            after: artifactory-jcr.artifactory.nginx.image.version
   artifactory.nginx.service.type:
     title: 'Nginx Service Type'
     description: 'Nginx Service Type. LoadBalancer/NodePort/ClusterIP'

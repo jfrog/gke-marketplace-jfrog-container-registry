@@ -1,6 +1,6 @@
 dependencies:
-- name: artifactory
-  repository: https://entplus.jfrog.io/artifactory/entplusrepo/
-  version: 8.100.7
-digest: sha256:69ca6f3c0c897ce5bdcaa8ae45cbd9f2747aad64eb890a763020bf8d4f0d22ca
-generated: "2019-12-31T10:11:42.136144-08:00"
+- name: artifactory-jcr
+  repository: https://charts.jfrog.io/
+  version: 2.0.9
+digest: sha256:b075b6027be89874d45ffaa06188d113e7506d1b301989fe7b493d669e41f8d6
+generated: "2020-03-05T13:02:51.573198-08:00"
