@@ -1,6 +1,6 @@
 dependencies:
 - name: artifactory-jcr
   repository: https://charts.jfrog.io
-  version: 1.0.1
-digest: sha256:1a12f54fd2e1c5833228e36c5df1559cab44d147f647c2447d339aa3363df343
-generated: "2020-01-14T10:09:31.448264-08:00"
+  version: 1.2.0
+digest: sha256:050fff147d9962af5c277b5035564a670e0af4220a743a9277ef3872b98f7e64
+generated: "2020-03-06T12:52:30.263514-08:00"
