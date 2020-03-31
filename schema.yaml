@@ -88,9 +88,13 @@ properties:
             after: artifactory-jcr.artifactory.nginx.image.version
   artifactory.nginx.service.type:
     title: 'Nginx Service Type'
-    description: 'Nginx Service Type. LoadBalancer/NodePort/ClusterIP'
+    description: 'Nginx Service Type.'
     default: 'LoadBalancer'
     type: string
+    enum:
+    - 'LoadBalancer'
+    - 'NodePort'
+    - 'ClusterIP'
   artifactory.nginx.service.loadBalancerIP:
     title: 'Provide static ip address'
     description: 'Provide static ip address for LoadBalancer. Optional for GKE.'

@@ -12,7 +12,7 @@ metadata:
 spec:
   descriptor:
     type: artifactory-jcr
-    versions: "{{ .Chart.AppVersion }}"
+    version: "{{ .Chart.AppVersion }}"
     description: |-
       JFrog Container Registry - The world’s most advanced, powerful, hybrid Docker and Helm registry.
     maintainers:
