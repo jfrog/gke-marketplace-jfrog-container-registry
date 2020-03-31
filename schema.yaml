@@ -56,13 +56,6 @@ properties:
     title: Memory for primary node (limit)
     type: string
     default: "8G"
-  artifactory.artifactory.node.replicaCount:
-    type: integer
-    title: 'Artifactory Member Node count'
-    description: 'Artifactory Member Node count (1 Primary + 2 Member = 3 Node Cluster)'
-    default: 2
-    minimum: 1
-    maximum: 10
   artifactory.artifactory.node.resources.requests.cpu:
     title: CPU units per node
     type: string
@@ -112,7 +105,6 @@ required:
 - artifactory.serviceAccount.name
 - artifactory.postgresql.postgresqlPassword
 - artifactory.artifactory.masterKey
-- artifactory.artifactory.node.replicaCount
 - artifactoryImage
 - artifactory.artifactory.persistence.size
 - artifactory.artifactory.primary.resources.requests.cpu
