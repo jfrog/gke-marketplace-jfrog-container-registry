@@ -27,7 +27,7 @@ x-google-marketplace:
           type: REPO_WITH_REGISTRY
         artifactory-jcr.artifactory.artifactory.image.version:
           type: TAG
-    nginx-artifactory-pro:
+    nginx:
       properties:
         artifactory-jcr.artifactory.nginx.image.repository:
           type: REPO_WITH_REGISTRY
