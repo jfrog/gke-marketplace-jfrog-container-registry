@@ -1,5 +1,42 @@
-applicationApiVersion: v1beta1
+x-google-marketplace:
+  schemaVersion: v2
+  # MUST match the version of the Application custom resource object.
+  # This is the same as the top level applicationApiVersion field in v1.
+  applicationApiVersion: v1beta1
+  # The release version is required in the schema and MUST match the
+  # release tag on the the deployer.
+  publishedVersion: '7.4.1'
+  publishedVersionMetadata:
+    releaseNote: >-
+      Initial release.
+    # releaseTypes list is optional.
+    # "Security" should only be used if this is an important update to patch
+    # an existing vulnerability, as such updates will display more prominently for users.
+    releaseTypes:
+      - Feature
+      - BugFix
+    # If "recommended" is "true", users using older releases are encouraged
+    # to update as soon as possible. This is useful if, for example, this release
+    # fixes a critical issue.
+    recommended: true
+  # Image declaration is required here. Refer to the Images section below.
+  images:
+    '':  # Primary image has no name.
+      properties:
+        artifactory-jcr.artifactory.artifactory.image.repository:
+          type: REPO_WITH_REGISTRY
+        artifactory-jcr.artifactory.artifactory.image.version:
+          type: TAG
+    nginx:
+      properties:
+        artifactory-jcr.artifactory.nginx.image.repository:
+          type: REPO_WITH_REGISTRY
+        artifactory-jcr.artifactory.nginx.image.version:
+          type: TAG
 
+# Other fields, like clusterConstraints, can be included here.
+
+# The Properties and Required sections of v2 are structured the same as those of v1.
 properties:
   name:
     type: string
@@ -13,7 +50,7 @@ properties:
     type: string
     x-google-marketplace:
       type: SERVICE_ACCOUNT
-  artifactory.postgresql.postgresPassword:
+  artifactory.postgresql.postgresqlPassword:
     type: string
     x-google-marketplace:
       type: GENERATED_PASSWORD
@@ -26,16 +63,6 @@ properties:
     description: 'You can generate one with the command: openssl rand -hex 32'
     default: 'FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'
     type: string
-  artifactoryImage:
-    type: string
-    default: gcr.io/jfrog-gc-mp/jfrog-jcr:6.16.0
-    x-google-marketplace:
-      type: IMAGE
-      image:
-        generatedProperties:
-          splitByColon:
-            before: artifactory-jcr.artifactory.artifactory.image.repository
-            after: artifactory-jcr.artifactory.artifactory.image.version
   artifactory.artifactory.persistence.size:
     title: Disk allocation to Artifactory nodes
     type: string
@@ -56,13 +83,6 @@ properties:
     title: Memory for primary node (limit)
     type: string
     default: "8G"
-  artifactory.artifactory.node.replicaCount:
-    type: integer
-    title: 'Artifactory Member Node count'
-    description: 'Artifactory Member Node count (1 Primary + 2 Member = 3 Node Cluster)'
-    default: 2
-    minimum: 1
-    maximum: 10
   artifactory.artifactory.node.resources.requests.cpu:
     title: CPU units per node
     type: string
@@ -83,21 +103,15 @@ properties:
     title: The following Java options are passed to the java process running Artifactory.
     type: string
     default: "-server -Xms1g -Xmx6g -Xss256k -XX:+UseG1GC"
-  artifactoryNginxImage:
-    type: string
-    default: gcr.io/jfrog-gc-mp/jfrog-jcr/nginx:6.16.0
-    x-google-marketplace:
-      type: IMAGE
-      image:
-        generatedProperties:
-          splitByColon:
-            before: artifactory-jcr.artifactory.nginx.image.repository
-            after: artifactory-jcr.artifactory.nginx.image.version
   artifactory.nginx.service.type:
     title: 'Nginx Service Type'
-    description: 'Nginx Service Type. LoadBalancer/NodePort/ClusterIP'
+    description: 'Nginx Service Type.'
     default: 'LoadBalancer'
     type: string
+    enum:
+    - 'LoadBalancer'
+    - 'NodePort'
+    - 'ClusterIP'
   artifactory.nginx.service.loadBalancerIP:
     title: 'Provide static ip address'
     description: 'Provide static ip address for LoadBalancer. Optional for GKE.'
@@ -110,10 +124,8 @@ required:
 - name
 - namespace
 - artifactory.serviceAccount.name
-- artifactory.postgresql.postgresPassword
+- artifactory.postgresql.postgresqlPassword
 - artifactory.artifactory.masterKey
-- artifactory.artifactory.node.replicaCount
-- artifactoryImage
 - artifactory.artifactory.persistence.size
 - artifactory.artifactory.primary.resources.requests.cpu
 - artifactory.artifactory.primary.resources.requests.memory
@@ -124,5 +136,4 @@ required:
 - artifactory.artifactory.node.resources.limits.cpu
 - artifactory.artifactory.node.resources.limits.memory
 - artifactory.artifactory.javaOpts.other
-- artifactoryNginxImage
 - artifactory.nginx.service.type
