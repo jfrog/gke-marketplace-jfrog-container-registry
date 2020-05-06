@@ -5,7 +5,7 @@ x-google-marketplace:
   applicationApiVersion: v1beta1
   # The release version is required in the schema and MUST match the
   # release tag on the the deployer.
-  publishedVersion: '$ARTIFACTORY_VERSION'
+  publishedVersion: '7.4.3'
   publishedVersionMetadata:
     releaseNote: >-
       Initial release.
