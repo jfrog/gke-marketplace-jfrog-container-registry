@@ -55,7 +55,7 @@ properties:
           Monitors cluster-wide app dependencies,
           managing CoreOS application instances and their clusters.
         roles: []
- artifactory.postgresql.postgresqlPassword:
+  artifactory.postgresql.postgresqlPassword:
     type: string
     x-google-marketplace:
       type: GENERATED_PASSWORD
