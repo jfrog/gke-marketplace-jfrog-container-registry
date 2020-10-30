@@ -23,14 +23,18 @@ x-google-marketplace:
   images:
     '':  # Primary image has no name.
       properties:
+        artifactory-jcr.artifactory.artifactory.image.registry:
+          type: REGISTRY
         artifactory-jcr.artifactory.artifactory.image.repository:
-          type: REPO_WITH_REGISTRY
+          type: REPO_WITHOUT_REGISTRY
         artifactory-jcr.artifactory.artifactory.image.version:
           type: TAG
     nginx:
       properties:
+        artifactory-jcr.artifactory.nginx.image.registry:
+          type: REGISTRY
         artifactory-jcr.artifactory.nginx.image.repository:
-          type: REPO_WITH_REGISTRY
+          type: REPO_WITHOUT_REGISTRY
         artifactory-jcr.artifactory.nginx.image.version:
           type: TAG
 
