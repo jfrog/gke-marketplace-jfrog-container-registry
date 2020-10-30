@@ -5,7 +5,7 @@ x-google-marketplace:
   applicationApiVersion: v1beta1
   # The release version is required in the schema and MUST match the
   # release tag on the the deployer.
-  publishedVersion: '7.5.5'
+  publishedVersion: '7.10.2'
   publishedVersionMetadata:
     releaseNote: >-
       Initial release.
@@ -50,7 +50,12 @@ properties:
     type: string
     x-google-marketplace:
       type: SERVICE_ACCOUNT
-  artifactory.postgresql.postgresqlPassword:
+      serviceAccount:
+        description: >
+          Monitors cluster-wide app dependencies,
+          managing CoreOS application instances and their clusters.
+        roles: []
+ artifactory.postgresql.postgresqlPassword:
     type: string
     x-google-marketplace:
       type: GENERATED_PASSWORD
