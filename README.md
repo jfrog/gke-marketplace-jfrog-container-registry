@@ -54,7 +54,7 @@ export ZONE=us-west1-a
 export MACHINE_TYPE=n1-standard-4
 
 # create the cluster using google command line tools
-gcloud container clusters create "$CLUSTER" --zone "$ZONE" ---machine-type "$MACHINE_TYPE"
+gcloud container clusters create "$CLUSTER" --zone "$ZONE" --machine-type "$MACHINE_TYPE"
 ```
 
 Configure `kubectl` to connect to the new cluster:

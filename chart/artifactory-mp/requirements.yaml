@@ -1,5 +1,5 @@
 dependencies:
 - name: artifactory-jcr
   repository: https://charts.jfrog.io
-  version: 3.2.0
+  version: 3.3.0
 
