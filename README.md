@@ -110,7 +110,7 @@ gcloud auth configure-docker
 
 Pull the deployer image to your local docker registry
 ```shell
-docker pull gcr.io/jfrog-gc-mp/jfrog-jcr/deployer:7.10
+docker pull gcr.io/jfrog-gc-mp/jfrog-jcr/deployer:7.11
 ```
 
 #### Run installer script
