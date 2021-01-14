@@ -58,7 +58,16 @@ properties:
         description: >
           Monitors cluster-wide app dependencies,
           managing CoreOS application instances and their clusters.
-        roles: []
+        roles:
+          - type: ClusterRole        # This is a cluster-wide ClusterRole
+            rulesType: PREDEFINED
+            rulesFromRoleName: view  # Use predefined role named "view"
+          - type: Role               # This is a namespaced Role
+            rulesType: CUSTOM
+            rules:
+              - apiGroups: ['apps.kubernetes.io']
+                resources: ['applications']
+                verbs: ['*']
   artifactory.postgresql.postgresqlPassword:
     type: string
     x-google-marketplace:
