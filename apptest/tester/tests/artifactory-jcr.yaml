@@ -1,0 +1,8 @@
+actions:
+- name: Artifactory HA license test
+  bashTest:
+    script: |-
+      kubectl exec -it ${APP_INSTANCE_NAME}-artifactory-jcr-0 -- gradlew artifactory_jcr_docker_test
+    expect:
+      exitCode:
+        equals: 0
