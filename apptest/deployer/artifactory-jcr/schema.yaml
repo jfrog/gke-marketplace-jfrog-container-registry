@@ -1,0 +1,11 @@
+properties:
+  testerImage:
+    type: string
+    default: $REGISTRY/tester:$TAG
+    x-google-property:
+      type: IMAGE
+  artifactory.artifactory.masterKey:
+    title: 'Artifactory requires a unique master key'
+    description: 'You can generate one with the command: openssl rand -hex 32'
+    default: '13661eac288a991c10bb2effd9ebd7e13f910b03a3127e9af175efbfa59d173d'
+    type: string

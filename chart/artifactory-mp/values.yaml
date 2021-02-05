@@ -3,6 +3,10 @@ installer:
   type: helm
   platform: gke-marketplace
 
+artifactory-jcr:
+    artifactory:
+      installerInfo: '{"productId":"GKE_artifactory-jcr/1.0.0","features":[{"featureId":"Partner/ACC-007222"}]}'
+
 ## Role Based Access Control
 ## Ref: https://kubernetes.io/docs/admin/authorization/rbac/
 rbac:

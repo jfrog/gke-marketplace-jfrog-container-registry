@@ -54,7 +54,7 @@ export ZONE=us-west1-a
 export MACHINE_TYPE=n1-standard-4
 
 # create the cluster using google command line tools
-gcloud container clusters create "$CLUSTER" --zone "$ZONE" ---machine-type "$MACHINE_TYPE"
+gcloud container clusters create "$CLUSTER" --zone "$ZONE" --machine-type "$MACHINE_TYPE"
 ```
 
 Configure `kubectl` to connect to the new cluster:
@@ -110,7 +110,7 @@ gcloud auth configure-docker
 
 Pull the deployer image to your local docker registry
 ```shell
-docker pull gcr.io/jfrog-gc-mp/jfrog-jcr/deployer:7.4
+docker pull gcr.io/jfrog-gc-mp/jfrog-jcr/deployer:7.11
 ```
 
 #### Run installer script
@@ -133,7 +133,7 @@ kubectl create namespace $NAMESPACE
 Run the install script
 
 ```shell
-./scripts/mpdev scripts/install  --deployer=gcr.io/jfrog-gc-mp/jfrog-jcr/deployer:7.4   --parameters='{"name": "'$NAME'", "namespace": "'$NAMESPACE'"}'
+./scripts/mpdev scripts/install  --deployer=gcr.io/jfrog-gc-mp/jfrog-jcr/deployer:7.11   --parameters='{"name": "'$NAME'", "namespace": "'$NAMESPACE'"}'
 
 ```
 

@@ -5,7 +5,7 @@ x-google-marketplace:
   applicationApiVersion: v1beta1
   # The release version is required in the schema and MUST match the
   # release tag on the the deployer.
-  publishedVersion: '7.4.1'
+  publishedVersion: '7.11.5'
   publishedVersionMetadata:
     releaseNote: >-
       Initial release.
@@ -23,14 +23,18 @@ x-google-marketplace:
   images:
     '':  # Primary image has no name.
       properties:
+        artifactory-jcr.artifactory.artifactory.image.registry:
+          type: REGISTRY
         artifactory-jcr.artifactory.artifactory.image.repository:
-          type: REPO_WITH_REGISTRY
+          type: REPO_WITHOUT_REGISTRY
         artifactory-jcr.artifactory.artifactory.image.version:
           type: TAG
     nginx:
       properties:
+        artifactory-jcr.artifactory.nginx.image.registry:
+          type: REGISTRY
         artifactory-jcr.artifactory.nginx.image.repository:
-          type: REPO_WITH_REGISTRY
+          type: REPO_WITHOUT_REGISTRY
         artifactory-jcr.artifactory.nginx.image.version:
           type: TAG
 
@@ -50,6 +54,11 @@ properties:
     type: string
     x-google-marketplace:
       type: SERVICE_ACCOUNT
+      serviceAccount:
+        description: >
+          Monitors cluster-wide app dependencies,
+          managing CoreOS application instances and their clusters.
+        roles: []
   artifactory.postgresql.postgresqlPassword:
     type: string
     x-google-marketplace:
