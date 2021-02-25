@@ -1,8 +1,10 @@
 actions:
-- name: Artifactory HA license test
-  bashTest:
-    script: |-
-      kubectl exec -it ${APP_INSTANCE_NAME}-artifactory-jcr-0 -- gradlew artifactory_jcr_docker_test
-    expect:
-      exitCode:
-        equals: 0
+  - name: Artifactory jfrt service check
+    bashTest:
+      script: |-
+        export IP_ADDRESS=$(kubectl get svc --namespace=${NAMESPACE} | grep LoadBalancer | grep 'artifactory*' | awk '{$2=$2};1' | cut -f4 -d ' ')
+        export STATUS=$(curl -s -o --connect-timeout 5 http://${IP_ADDRESS}:80/router/api/v1/system/health | jq ".services[4].state")
+        echo "${STATUS}"
+      expect:
+        stdout:
+          contains: 'HEALTHY'

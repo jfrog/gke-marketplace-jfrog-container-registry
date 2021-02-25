@@ -5,7 +5,7 @@ x-google-marketplace:
   applicationApiVersion: v1beta1
   # The release version is required in the schema and MUST match the
   # release tag on the the deployer.
-  publishedVersion: '7.11.5'
+  publishedVersion: '$TAG'
   publishedVersionMetadata:
     releaseNote: >-
       Initial release.
@@ -79,7 +79,7 @@ properties:
   artifactory.artifactory.masterKey:
     title: 'Artifactory requires a unique master key'
     description: 'You can generate one with the command: openssl rand -hex 32'
-    default: 'FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'
+    default: '13661eac288a991c10bb2effd9ebd7e13f910b03a3127e9af175efbfa59d173d'
     type: string
   artifactory.artifactory.persistence.size:
     title: Disk allocation to Artifactory nodes
@@ -138,6 +138,10 @@ properties:
     title: 'Nginx SSL Secret name'
     description: 'The SSL secret that will be used by the Nginx pod'
     type: string
+  artifactory.filebit.readinessProbe.initialDelaySeconds:
+    title: 'Readiness probe delay, seconds'
+    type: string
+    default: '60'
 required:
 - name
 - namespace

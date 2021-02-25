@@ -26,19 +26,5 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
         - name: APP_INSTANCE_NAME
-          value: {{ .Release.Name }}
-        - name: PGPASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Release.Name }}-postgresql-secret
-              key: db-password
-        - name: POSTGRESQL_SERVICE
-          value: {{ .Release.Name }}-postgresql-svc.{{ .Release.Namespace }}.svc.cluster.local
-      - name: POSTGRESQL_EXPORTER_SERVICE
-      value: {{ .Release.Name }}-postgresql-exporter-svc.{{ .Release.Namespace }}.svc.cluster.local
-      - name: REDIS_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: {{ .Release.Name }}-redis-secret
-          key: redis-password
+          value: "{{ .Release.Name }}"
   restartPolicy: Never
