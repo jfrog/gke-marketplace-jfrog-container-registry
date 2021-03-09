@@ -79,7 +79,7 @@ properties:
   artifactory.artifactory.masterKey:
     title: 'Artifactory requires a unique master key'
     description: 'You can generate one with the command: openssl rand -hex 32'
-    default: '13661eac288a991c10bb2effd9ebd7e13f910b03a3127e9af175efbfa59d173d'
+    default: 'FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'
     type: string
   artifactory.artifactory.persistence.size:
     title: Disk allocation to Artifactory nodes
